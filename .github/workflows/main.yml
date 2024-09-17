@@ -1,17 +1,14 @@
-# This file contains the essential steps for getting the app packaged and scanned using Veracode's various
-# scan types.  We suggest starting with the elements in this file and fully understanding them before
-# attempting more advanced use cases, like 'Pipeline scan on a PR', or importing Issues.
 
-# The essential steps shown below are:
-#   checkout and package the app for scanning
-#   upload for a static scan
-#   run the SCA agent scan
-#   run the Container scan
-
-name: the-essentials
+name: verademo
 
 on:
-  workflow_dispatch:
+   push:
+    branches:
+      - main
+   pull_request:
+    branches:
+      - main
+
 
 jobs:
   build:
