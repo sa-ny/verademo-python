@@ -20,8 +20,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.clickjacking import xframe_options_exempt
 import mimetypes
 
-from app.models import User, Blabber
-from app.forms import RegisterForm
+from application.models import User, Blabber
+from application.forms import RegisterForm
 
 
 # Get logger
