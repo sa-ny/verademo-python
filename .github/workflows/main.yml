@@ -92,7 +92,7 @@ jobs:
           DEBUG: true
           
           fixType: batch
-          files: changed
+          files: all
 
           prComment: true
 
