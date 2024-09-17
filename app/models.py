@@ -6,7 +6,7 @@ import pyotp
 from django.db import models
 
 
-# User model stores user information
+# User model stores user information..
 class User(models.Model):
     
     class Meta:
