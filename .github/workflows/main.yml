@@ -95,5 +95,11 @@ jobs:
           files: all
 
           prComment: true
+      - name: get uploaded app
+        uses: actions/upload-artifact@v2
+        with:
+          name: uploaded-app
+          path: app.tar.gz
+
 
 
