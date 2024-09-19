@@ -3,6 +3,7 @@ from typing import override
 import sys
 import logging
 
+#build trigger message, please succeed
 class IgnoreCommand(BlabberCommand):
     logger = logging.getLogger("VeraDemo:IgnoreCommand")
 
