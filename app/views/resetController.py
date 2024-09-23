@@ -12,7 +12,7 @@ from django.db import connection, transaction
 from app.models import create
 
 
-
+#trigger
 
 ##################RESET CONTROLLER#####################
 logger = logging.getLogger("VeraDemo:resetController")
