@@ -92,7 +92,7 @@ jobs:
           DEBUG: true
           
           fixType: batch
-          files: all
+          files: changed
 
           prComment: true
       - name: get uploaded app
