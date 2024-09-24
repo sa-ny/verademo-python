@@ -11,7 +11,7 @@ from django.contrib.auth import authenticate
 from django.db import connection, transaction
 from app.models import create
 
-
+# build trigger
 
 
 ##################RESET CONTROLLER#####################
