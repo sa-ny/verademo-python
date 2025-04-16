@@ -23,7 +23,7 @@ import mimetypes
 from application.models import User, Blabber
 from application.forms import RegisterForm
 
-#...dd
+#....dd
 # Get logger
 logger = logging.getLogger("VeraDemo:userController")
 image_dir = os.path.join(os.path.dirname(__file__), '../../resources/images')
