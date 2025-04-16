@@ -95,9 +95,3 @@ jobs:
           files: changed
 
           prComment: true
-      - name: get uploaded app
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: uploaded-app
-          path: app.tar.gz
