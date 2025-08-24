@@ -25,7 +25,7 @@ from application.forms import RegisterForm
 from html import escape
 from flask import Flask, make_response, jsonify
 
-#...
+#....
 # Get logger
 logger = logging.getLogger("VeraDemo:userController")
 image_dir = os.path.join(os.path.dirname(__file__), '../../resources/images')
