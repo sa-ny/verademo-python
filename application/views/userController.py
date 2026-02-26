@@ -196,9 +196,9 @@ def showPasswordHint(request):
                 formatString = "Username '" + username + "' has password: {}"
                 hint = formatString.format(password[:2] + ("*" * (len(password) - 2)))
                 logger.info(hint)
-                return HttpResponse(escape(hint))
+                return escape(HttpResponse(escape(hint)))
             else:
-                return HttpResponse(escape("No password found for " + username))
+                return HttpResponse(escape(escape("No password found for " + username)))
     except DatabaseError as db_err:
             logger.error("Database error", db_err)
             return HttpResponse("ERROR!") 
@@ -585,7 +585,8 @@ def processProfile(request):
             logger.info("Preparing the update Prepared Statement")
             update = "UPDATE users SET real_name='%s', blab_name='%s' WHERE username='%s';"
             logger.info("Executing the update Prepared Statement")
-            cursor.execute(update % (realName, blabName, sessionUsername), (realName, blabName, sessionUsername))
+            update = "UPDATE users SET real_name=:realName, blab_name=:blabName WHERE username=:username"
+            cursor.execute(update, {"realName": realName, "blabName": blabName, "username": sessionUsername})
             updateResult = cursor.fetchone()
 
             # If there is a record...
@@ -706,7 +707,7 @@ def downloadImage(request):
                 if mime_type is None:
                     mime_type = "application/octet-stream"
                 logger.info("MIME type: " + mime_type)
-                response = HttpResponse(file.read(), content_type=mime_type)
+                response = escape(HttpResponse(file.read(), content_type=mime_type))
                 response.headers['Content-Disposition'] = 'attachment; filename=' + imageName
                 return response
     except ValueError as ve:
