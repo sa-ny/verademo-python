@@ -56,7 +56,7 @@ def login(request):
                 target = ''
 
             # BAD CODE:
-            logger.info("Entering login with username.. " + username + " and target " + target)
+            logger.info("Entering login with username... " + username + " and target " + target)
             # GOOD CODE:
             # logger.debug("Entering login.")
             
