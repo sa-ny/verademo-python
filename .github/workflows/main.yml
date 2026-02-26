@@ -93,4 +93,4 @@ jobs:
           fixType: batch
           files: all
           prComment: true
-          cwe:89
+          cwe: 89
