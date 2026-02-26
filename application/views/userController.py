@@ -40,7 +40,7 @@ def login(request):
         username = request.GET.get('username')
 
         if request.session.get('username'):
-            logger.info("User is already logged in - redirecting...")
+            logger.info("User is already logged in - redirecting.....")
             if (target != None) and (target) and (not target == "null"):
                 return redirect(target)
             else:
