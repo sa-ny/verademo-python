@@ -585,7 +585,8 @@ def processProfile(request):
             logger.info("Preparing the update Prepared Statement")
             update = "UPDATE users SET real_name='%s', blab_name='%s' WHERE username='%s';"
             logger.info("Executing the update Prepared Statement")
-            cursor.execute(update % (realName, blabName, sessionUsername), (realName, blabName, sessionUsername))
+            update = "UPDATE users SET real_name=:realName, blab_name=:blabName WHERE username=:username"
+            cursor.execute(update, {"realName": realName, "blabName": blabName, "username": sessionUsername})
             updateResult = cursor.fetchone()
 
             # If there is a record...
