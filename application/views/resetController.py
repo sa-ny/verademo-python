@@ -109,6 +109,7 @@ def processReset(request):
                 for blabber in users[2:]:
                     for listener in users[2:]:
                         rand = random.SystemRandom()
+                        rand = random.SystemRandom()
                         if rand.choice([False, True]) and (blabber!= listener):
                             
 
@@ -126,6 +127,7 @@ def processReset(request):
                 blabsStatement = "INSERT INTO blabs (blabber, content, timestamp) values (%s, %s, datetime('now'));"
                 for blabContent in blabsContent:
                     # Get the array offset for a random user
+                    rand = random.SystemRandom()
                     rand = random.SystemRandom()
                     randomUserOffset = rand.randint(2, len(users) - 1)
 
@@ -147,12 +149,13 @@ def processReset(request):
                 for i in range(len(blabsContent)):
                     # Add a random number of comment
                     rand = random.SystemRandom()
-                    count = rand.randint(0, 5) # between 0 and 6
+                    rand = random.SystemRandom()
+                    count = rand.randint(0, 5)
 
                     for j in range(count) :
                         # Get the array offset for a random user
                         rand = random.SystemRandom()
-                        randomUserOffset = rand.randint(2, len(users)-1) #removed +1 cause no admin,  removed -2 because no admin and inclusive.
+                        randomUserOffset = random.SystemRandom().randint(2, len(users)-1)
                         username = users[randomUserOffset].username
 
                         # Pick a random comment to add

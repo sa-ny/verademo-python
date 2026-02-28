@@ -208,7 +208,7 @@ def blab(request):
 
                     # Get comments
                     logger.info("Executing query to get all comments")
-                    cursor.execute(blabCommentsSql % (blabid,))
+                    cursor.execute(blabCommentsSql, (blabid, ))
                     blabCommentsResults = cursor.fetchall()
 
                     comments = []
@@ -254,7 +254,8 @@ def blab(request):
             with connection.cursor() as cursor:
 
                 logger.info("Executing addComment")
-                cursor.execute(addCommentSql % (blabid, username, comment, moment.now().format("YYYY-MM-DD hh:mm:ss")))
+                addCommentSql = "INSERT INTO comments (blabid, blabber, content, timestamp) values (%s, %s, %s, %s);"
+                cursor.execute(addCommentSql, (blabid, username, comment, moment.now().format("YYYY-MM-DD hh:mm:ss")))
                 
                 if not cursor.rowcount:
                     request.error = "Failed to add comment"

@@ -102,7 +102,8 @@ def FortuneData():
             "Happy life is just in front of you." 
         ]
 
-        return random.choice(fortunes)
+        rand = random.SystemRandom()
+        return rand.choice(fortunes)
 
 
 def RiddleData():
